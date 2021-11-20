@@ -3,20 +3,16 @@ import mujik from "../../assets/icons/mujik.svg";
 import loopa from "../../assets/icons/loopa.svg";
 import styles from "./SearchBar.module.scss";
 import useDetectMouseMove from "../../hooks/useDetectMouseMove";
-import { KeyboardEvent } from "react";
+import { useCallback } from "react";
 
 type SearchBar = {
   setLink: any;
+  link: string;
 };
 
-const SearchBar = ({ setLink }: SearchBar) => {
+const SearchBar = ({ setLink, link }: SearchBar) => {
   const mouseMoving = useDetectMouseMove(5000);
-
-  const _handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      setLink(e.currentTarget.value);
-    }
-  };
+  console.log(mouseMoving);
 
   return (
     <div
@@ -30,7 +26,8 @@ const SearchBar = ({ setLink }: SearchBar) => {
       <div className={styles.SearchBox}>
         <img className={styles.SearchIcon} src={loopa} />
         <input
-          onKeyDown={(e) => _handleKeyDown(e)}
+          value={link}
+          onInput={(e: any) => setLink(e.target.value)}
           placeholder={"Paste your link here..."}
           className={styles.Input}
           type={"text"}
