@@ -7,7 +7,7 @@ import { ClientEvent, ServerEvent } from "../../shared/constants";
 const Player = () => {
   const [playing, setPlaying] = useState(false);
   const [link, setLink] = useState(
-    "https://www.youtube.com/watch?v=ysz5S6PUM-U"
+    "https://www.youtube.com/watch?v=5Jdc28dkM_Q"
   );
   const ref = useRef<ReactPlayer>(null);
 
