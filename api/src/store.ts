@@ -11,10 +11,16 @@ class StateStore implements State {
         this.src = undefined;
     }
 
-    set(state: State): void {
+    setBatch(state: State): void {
         this.timing = state.timing;
         this.isPlaying = state.isPlaying;
         this.src = state.src;
+    }
+
+    set(state: Partial<State>): void {
+        Object.keys(state).forEach((key) => {
+            this[key] = state[key];
+        });
     }
 
     get(): State {
