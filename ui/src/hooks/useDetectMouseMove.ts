@@ -14,7 +14,7 @@ const useDetectMouseMove = (timing: number) => {
     })();
   };
 
-  window.addEventListener("mousemove", mouseMove, false);
+  document.addEventListener("mousemove", mouseMove, false);
 
   useEffect(() => {
     return () => window.removeEventListener("mousemove", mouseMove);
