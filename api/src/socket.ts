@@ -1,4 +1,4 @@
-import {ClientEvent, ServerEvent} from '../../shared/constants';
+import {ClientEvent, ServerEvent} from '../../ui/shared/constants';
 import {io} from './index';
 import store from './store'
 

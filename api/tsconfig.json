@@ -1,11 +1,11 @@
 {
-  "include": ["**/*", "../typings", "../shared/*"],
+  "include": ["**/*", "../typings", "../ui/shared/*"],
   "compilerOptions": {
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
       "*": ["./*"],
-      "shared/*": ["../shared/*"]
+      "shared/*": ["../ui/shared/*"]
     },
   }
 }
