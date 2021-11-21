@@ -10,6 +10,6 @@ app.get('/', function(req, res) {
     res.send('hello world');
 });
 
-server.listen(3000, () => {
-    console.log('listening on localhost:3000');
+server.listen(3030, () => {
+    console.log('listening on http://localhost:3030');
 });
