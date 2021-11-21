@@ -9,7 +9,7 @@ io.on("connection", (socket) => {
 
   socket.on(ClientEvent.ChangeSrc, (src) => {
     store.set({ src });
-    socket.emit(ServerEvent.ChangeSrc, store.get());
+    io.sockets.emit(ServerEvent.ChangeSrc, store.get());
   });
 
   socket.on(ClientEvent.Pause, (timing) => {

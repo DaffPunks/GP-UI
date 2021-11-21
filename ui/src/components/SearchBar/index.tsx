@@ -3,15 +3,13 @@ import mujik from "../../assets/icons/mujik.svg";
 import loopa from "../../assets/icons/loopa.svg";
 import styles from "./SearchBar.module.scss";
 import { KeyboardEvent } from "react";
+import { ClientEvent } from "../../shared/constants";
+import socket from "../../service/sockets";
 
-type SearchBar = {
-  setLink: any;
-};
-
-const SearchBar = ({ setLink }: SearchBar) => {
+const SearchBar = () => {
   const _handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      setLink(e.currentTarget.value);
+      socket.emit(ClientEvent.ChangeSrc, e.currentTarget.value);
     }
   };
 

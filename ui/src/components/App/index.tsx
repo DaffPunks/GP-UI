@@ -8,11 +8,10 @@ import { socketApi } from "../../service/sockets";
 socketApi();
 
 const App = () => {
-  const [link, setLink] = useState("");
   return (
     <div className={styles.App}>
-      <SearchBar setLink={setLink} />
-      <Player link={link} />
+      <SearchBar />
+      <Player />
     </div>
   );
 };

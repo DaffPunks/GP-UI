@@ -4,13 +4,11 @@ import ReactPlayer from "react-player";
 import socket from "../../service/sockets";
 import { ClientEvent, ServerEvent } from "../../shared/constants";
 
-type Player = {
-  link: string;
-};
-
-const Player = ({ link }: Player) => {
+const Player = () => {
   const [playing, setPlaying] = useState(false);
-
+  const [link, setLink] = useState(
+    "https://www.youtube.com/watch?v=ysz5S6PUM-U"
+  );
   const ref = useRef<ReactPlayer>(null);
 
   useEffect(() => {
@@ -18,6 +16,11 @@ const Player = ({ link }: Player) => {
       setPlaying(data.isPlaying);
       if (ref.current) {
         ref.current.seekTo(data.timing, "seconds");
+      }
+    });
+    socket.on(ServerEvent.ChangeSrc, (data) => {
+      if (link !== data.link) {
+        setLink(data.link);
       }
     });
   }, []);
@@ -48,7 +51,7 @@ const Player = ({ link }: Player) => {
             socket.emit(ClientEvent.Pause, ref.current.getCurrentTime());
           }
         }}
-        url={link || "https://www.youtube.com/watch?v=ysz5S6PUM-U"}
+        url={link}
       />
     </div>
   );
