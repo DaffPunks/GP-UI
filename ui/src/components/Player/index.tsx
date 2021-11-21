@@ -14,6 +14,9 @@ const Player = () => {
   useEffect(() => {
     socket.on(ServerEvent.StateUpdate, (data) => {
       setPlaying(data.isPlaying);
+      if (data.src) {
+        setLink(data.src);
+      }
       if (ref.current) {
         ref.current.seekTo(data.timing, "seconds");
       }
