@@ -1,4 +1,4 @@
-export enum ServerEvents {
+export enum ServerEvent {
     StateUpdate = 'SERVER_STATE_UPDATE',
     ChangeSrc = 'SERVER_CHANGE_SRC',
 }
