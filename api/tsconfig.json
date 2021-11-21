@@ -1,0 +1,11 @@
+{
+  "include": ["**/*", "../typings", "../shared/*"],
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./*"],
+      "shared/*": ["../shared/*"]
+    },
+  }
+}
