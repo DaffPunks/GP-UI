@@ -19,8 +19,8 @@ const Player = () => {
       }
     });
     socket.on(ServerEvent.ChangeSrc, (data) => {
-      if (link !== data.link) {
-        setLink(data.link);
+      if (link !== data.src) {
+        setLink(data.src);
       }
     });
   }, [link]);
