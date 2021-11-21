@@ -3,10 +3,9 @@ import SearchBar from "../SearchBar";
 import Player from "../Player";
 import "./App.scss";
 import styles from "./App.module.scss";
-import { io } from "socket.io-client";
+import { socketApi } from "../../service/sockets";
 
-const socket = io("http://localhost:3030");
-socket.on("connect", () => console.log(socket));
+socketApi();
 
 const App = () => {
   const [link, setLink] = useState("");
