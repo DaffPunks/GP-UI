@@ -23,7 +23,7 @@ const Player = () => {
         setLink(data.link);
       }
     });
-  }, []);
+  }, [link]);
 
   return (
     <div className={styles.Player}>
