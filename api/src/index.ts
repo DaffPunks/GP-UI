@@ -6,7 +6,11 @@ export const app = express();
 export const server = http.createServer(app);
 export const io = new Server(server, {
   cors: {
-    origin: "http://51.250.10.45:3000",
+    origin: [
+      "http://localhost:3000",
+      "http://goposmotrim.ru",
+      "http://51.250.10.45:3000",
+    ],
     methods: ["GET", "POST"],
   },
 });
